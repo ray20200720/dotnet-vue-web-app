@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@* <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> *@
+<script src="~/js/vue3-3-4.global.js"></script>
+
+<div id="app" class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>{{ message }} <a :href="[url]">Vue</a>.</p>
+    <button v-on:click="count++">{{ count }}</button>
+    <p>Has published books:</p>
+    <span>{{ author.books.length > 0 ? 'Yes' : 'No' }}</span>
+</div>
+
+<script>
+  const { createApp } = Vue
+  createApp({
+    data() {
+      return {
+        url: 'https://vuejs.org/',
+        message: 'Learn about ',
+        count: 0,
+        author: {
+            name: 'John Doe',
+            books: [
+                'Vue 2 - Advanced Guide',
+                'Vue 3 - Basic Guide',
+                'Vue 4 - The Mystery'
+            ]
+        }
+      }
+    }
+  }).mount('#app')
+</script>
